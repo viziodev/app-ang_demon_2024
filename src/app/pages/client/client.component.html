@@ -1,0 +1,70 @@
+
+<div class="container-fluid mt-2" >
+    <div class="card mt-1">
+        <div class="card-header">
+            <h3>Liste des Clients</h3>
+        </div>
+        <div class="card-body">
+              <div  class="my-2 float-end">
+                       <a th:href="" class="btn btn-outline-success" >Nouveau</a>
+              </div>
+
+             <form class="d-flex w-50 mb-3" method="get" >
+                <input  class="form-control me-2" 
+                name="keyword" type="search" 
+                placeholder="Search" 
+                aria-label="Search"
+                #keywork
+                (keyup)="searchTel(keywork.value)"
+                >
+             </form>
+            <table class="table table-bordered">
+                <thead>
+                <th>Nom et Prenom</th>
+                <th>Telephone</th>
+                <th>Quartier</th>
+                <th>Numero Villa</th>
+                <th>Commandes</th>
+                </thead>
+                <tbody>
+                  @for (item of reponse?.results; track $index) {
+                 <tr >
+                     <td >{{item.nomComplet}}</td>
+                     <td >{{item.telephone}}</td>
+                     <td ></td>
+                     <td></td>
+                     <td>
+                           <a href="#"  class="btn btn-xs btn-warning  btn-xs mr-2"> Mes Commandes </a>
+                           <a href="#"  class="mr-2 btn btn-outline-success btn-xs" >Nouvelle Commande</a>
+                     </td>
+                 </tr>
+                }
+                </tbody>
+
+            </table>
+            <nav aria-label="Page navigation example ">
+              <ul class="pagination pagination-sm float-end">
+                <li class="page-item">
+                  <a class="page-link" href="#" aria-label="Previous">
+                    <span aria-hidden="true">Previous</span>
+                  </a>
+                </li>
+              
+                @for (page of  [].constructor(reponse?.totalPages) ; track $index) {
+                      <li [ngClass]="{'active': reponse?.currentPage==$index}" class="page-item" >
+                       <a (click)="paginate($index)" class="page-link active" href="#">{{$index + 1}}</a>
+                     </li>
+                 }
+                
+                <li class="page-item">
+                  <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true">Next</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+        </div>
+       
+    </div>
+    <!-- Content here -->
+</div>

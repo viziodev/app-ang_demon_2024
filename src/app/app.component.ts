@@ -1,13 +1,21 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { RouterModule, RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { ClientComponent } from './pages/client/client.component';
+import { CommandeComponent } from './pages/commande/commande.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet,CommonModule,
+    ClientComponent,
+    CommandeComponent,
+    RouterModule],
+
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
-  title = 'app-ang';
+export class AppComponent  {
+
+
 }
