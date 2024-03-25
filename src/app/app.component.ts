@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterModule, RouterOutlet } from '@angular/router';
+import { RouterLink, RouterLinkActive, RouterModule, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ClientComponent } from './pages/client/client.component';
 import { CommandeComponent } from './pages/commande/commande.component';
@@ -7,7 +7,7 @@ import { CommandeComponent } from './pages/commande/commande.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,CommonModule,
+  imports: [RouterOutlet,CommonModule,RouterLink, RouterLinkActive,
     ClientComponent,
     CommandeComponent,
     RouterModule],

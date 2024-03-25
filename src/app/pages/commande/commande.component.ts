@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-commande',
@@ -7,6 +8,13 @@ import { Component } from '@angular/core';
   templateUrl: './commande.component.html',
   styleUrl: './commande.component.css'
 })
-export class CommandeComponent {
+export class CommandeComponent implements OnInit {
+   constructor(private route: ActivatedRoute){
+
+   }
+  ngOnInit(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+    console.log(id)
+  }
 
 }

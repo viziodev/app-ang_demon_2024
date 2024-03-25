@@ -34,7 +34,7 @@
                      <td ></td>
                      <td></td>
                      <td>
-                           <a href="#"  class="btn btn-xs btn-warning  btn-xs mr-2"> Mes Commandes </a>
+                           <a routerLink="/commande/{{item.id}}" class="btn btn-xs btn-warning  btn-xs mr-2"> Mes Commandes </a>
                            <a href="#"  class="mr-2 btn btn-outline-success btn-xs" >Nouvelle Commande</a>
                      </td>
                  </tr>
@@ -52,7 +52,7 @@
               
                 @for (page of  [].constructor(reponse?.totalPages) ; track $index) {
                       <li [ngClass]="{'active': reponse?.currentPage==$index}" class="page-item" >
-                       <a (click)="paginate($index)" class="page-link active" href="#">{{$index + 1}}</a>
+                       <a (click)="paginate($index,keywork.value)" class="page-link active" href="#">{{$index + 1}}</a>
                      </li>
                  }
                 

@@ -3,17 +3,19 @@ import { RestReponse } from '../../core/models/rest.response';
 import { ClientList } from '../../core/models/client';
 import { ClientRestService } from '../../core/services/impl/client.rest.service';
 import { CommonModule } from '@angular/common';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-client',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,RouterLink],
   templateUrl: './client.component.html',
   styleUrl: './client.component.css'
 })
 export class ClientComponent implements OnInit {
   reponse: RestReponse<ClientList[]>|null=null
-  constructor(private clientService:ClientRestService){
+  constructor(private clientService:ClientRestService
+    ){
   }
   ngOnInit(): void {
        this.refresh()
@@ -24,8 +26,8 @@ export class ClientComponent implements OnInit {
       this.reponse=res;  
   })
   }
-  paginate(page: number) {
-    this.refresh(page);
+  paginate(page: number,keyword:string) {
+    this.refresh(page,keyword);
   }
   searchTel(keyword:string){
     this.refresh(0,keyword);

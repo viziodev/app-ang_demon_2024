@@ -8,7 +8,7 @@ export const routes: Routes = [
         component: ClientComponent
       },
       {
-        path: 'commande',
+        path: 'commande/:id',
         component: CommandeComponent
       }
 ];
